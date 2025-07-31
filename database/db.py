@@ -3,7 +3,7 @@ from config.config import DATABASE
 
 def start_db():
     try:
-        with sqlite3.connect() as conn:
+        with sqlite3.connect(DATABASE) as conn:
             conn.execute('''
                 CREATE TABLE IF NOT EXISTS cliente (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
