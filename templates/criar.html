@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="display-6 text-center">NOVO CLIENTE</h2>
+    <a href="{{ url_for('cliente.index') }}"><input type="button" class="btn btn-secondary" value="Voltar"></a><br /><br />
+    <form method="POST">
+        <div class="form-group">
+            <label for="nome">NOME</label>
+            <input type="text" class="form-control" name="nome" aria-describedby="emailHelp" />
+            {% if 'nome' in erros %} <span class="text-danger fw-bold">{{ erros.nome }}</span> {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="cpf">Cpf</label>
+            <input type="text" class="form-control" name="cpf" />
+            {% if 'cpf' in erros %} <span class="text-danger fw-bold">{{ erros.cpf }}</span> {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="email" />
+            {% if 'email' in erros %} <span class="text-danger fw-bold">{{ erros.email }}</span> {% endif %}
+        </div><br />
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+{% endblock %}
