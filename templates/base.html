@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="#">
+        <link rel="stylesheet" href="{{ url_for('static', filename='/bootstrap/bootstrap.min.css') }}">
+        <title>Crud Flask</title>
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <h1 class="display-4">CRUD FLASK</h1>
+            </div>
+            {% block content %}{% endblock %}
+        </div>    
+    </body>
+</html>
