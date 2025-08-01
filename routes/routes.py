@@ -7,6 +7,13 @@ cliente_blueprint = Blueprint('cliente', __name__)
 
 @cliente_blueprint.route('/')
 def index():
+    """
+    Exibe a lista de todos os clientes cadastrados.
+
+    Returns:
+        Renderização do template 'index.html' com os dados dos clientes,
+        ou uma mensagem de erro com código 500 em caso de falha.
+    """
     try:
         with sqlite3.connect(DATABASE) as conn:
             cliente = conn.execute("SELECT * FROM cliente").fetchall() 
@@ -17,6 +24,17 @@ def index():
 
 @cliente_blueprint.route('/criar', methods = ['GET', 'POST'])  
 def criar():
+    """
+    Cria um novo cliente a partir dos dados enviados via formulário.
+
+    Métodos:
+        GET: Renderiza o formulário de criação.
+        POST: Valida os dados e insere o cliente no banco.
+
+    Returns:
+        - Em caso de sucesso: redireciona para a rota de listagem.
+        - Em caso de erro: renderiza o formulário com mensagens de erro.
+    """
     if request.method == 'POST': 
         nome = request.form['nome']
         cpf = request.form['cpf']
@@ -41,6 +59,21 @@ def criar():
 
 @cliente_blueprint.route('/editar/<int:cliente_id>', methods = ['GET', 'POST'])
 def editar(cliente_id):
+    """
+    Edita os dados de um cliente existente.
+
+    Args:
+        cliente_id (int): ID do cliente a ser editado.
+
+    Métodos:
+        GET: Busca os dados do cliente e exibe o formulário de edição.
+        POST: Valida e atualiza os dados no banco.
+
+    Returns:
+        - Em caso de sucesso: redireciona para a rota de listagem.
+        - Em caso de erro: renderiza o formulário com mensagens de erro
+          ou retorna erro 404/500 conforme o caso.
+    """
     try:
         with sqlite3.connect(DATABASE) as conn:
             if request.method == 'POST':
@@ -76,6 +109,15 @@ def editar(cliente_id):
 
 @cliente_blueprint.route('/apagar/<int:cliente_id>') 
 def apagar(cliente_id):
+    """
+    Exclui um cliente do banco de dados.
+
+    Args:
+        cliente_id (int): ID do cliente a ser removido.
+
+    Returns:
+        Redireciona para a página principal ou exibe mensagem de erro.
+    """
     try:
         with sqlite3.connect(DATABASE) as conn:
             conn.execute("DELETE FROM cliente WHERE id = ?", (cliente_id,))
