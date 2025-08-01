@@ -12,7 +12,7 @@ def index():
 
     Returns:
         Renderização do template 'index.html' com os dados dos clientes,
-        ou uma mensagem de erro com código 500 em caso de falha.
+        ou uma mensagem de erro.
     """
     try:
         with sqlite3.connect(DATABASE) as conn:
@@ -26,10 +26,6 @@ def index():
 def criar():
     """
     Cria um novo cliente a partir dos dados enviados via formulário.
-
-    Métodos:
-        GET: Renderiza o formulário de criação.
-        POST: Valida os dados e insere o cliente no banco.
 
     Returns:
         - Em caso de sucesso: redireciona para a rota de listagem.
@@ -64,10 +60,6 @@ def editar(cliente_id):
 
     Args:
         cliente_id (int): ID do cliente a ser editado.
-
-    Métodos:
-        GET: Busca os dados do cliente e exibe o formulário de edição.
-        POST: Valida e atualiza os dados no banco.
 
     Returns:
         - Em caso de sucesso: redireciona para a rota de listagem.
