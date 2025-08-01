@@ -18,16 +18,79 @@ Este projeto é uma aplicação web simples desenvolvida com **Flask** que reali
 
 ---
 
-## 🧰 Tecnologias utilizadas
+## 🧰 Ferramentas utilizadas
 
-- [Python 3](https://www.python.org/)
-- [Flask](https://flask.palletsprojects.com/)
-- [SQLite3](https://www.sqlite.org/)
-- [Bootstrap 5 (CDN)](https://getbootstrap.com/)
-- [Regex (re módulo do Python)](https://docs.python.org/3/library/re.html)
+- Python 3.9.13
+- Ambiente virtual `venv`
+- Framework Flask
+- Módulo `re`
+- SQLite3
+- `unittest` para testes
+- Git/GitHub
+- Visual Studio Code
+- Sistema operacional Windows 10
 
 ---
 
-## 🗂️ Estrutura do projeto
+## Requisitos
 
+- Python 3.x
+- Módulo `re`
+- Framework Flask
+- SQLite3
+- `unittest` para testes
 
+---
+
+## Como utilizar
+
+```bash
+# Clone o repositório
+git clone https://github.com/jcarlossc/crud-flask.git
+
+# Acesse o diretório
+cd crud-flask
+
+# Crie e ative o ambiente virtual
+python -m venv venv
+venv\Scripts\activate           # Windows
+source venv/bin/activate        # Linux/macOS
+
+# Instale as dependências
+pip install -r requirements.txt
+
+# Execute a aplicação
+python app.py
+
+# Para sair do ambiente virtual
+deactivate
+```
+---
+
+## Contribuição:
+
+Se quiser contribuir para este projeto, fique à vontade para enviar um pull request ou relatar problemas na seção de issues.
+
+---
+
+## Licença:
+
+Este projeto é licenciado sob a Licença MIT.
+
+---
+
+## Comandos importantes:
+
+```bash
+python -m venv venv               # Cria um ambiente virtual
+venv\Scripts\activate             # Ativa o ambiente no Windows
+source venv/bin/activate          # Ativa o ambiente no Linux/macOS
+deactivate                        # Encerra o ambiente virtual
+
+pip install nome-pacote           # Instala um pacote
+pip uninstall nome-pacote         # Remove um pacote
+pip freeze > requirements.txt     # Gera (ou atualiza) o arquivo de dependências
+pip install -r requirements.txt   # Instala pacotes listados no requirements.txt
+pip list                          # Lista pacotes instalados
+pip show nome-pacote              # Exibe detalhes de um pacote
+```
