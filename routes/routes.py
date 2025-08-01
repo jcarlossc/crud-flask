@@ -9,7 +9,7 @@ cliente_blueprint = Blueprint('cliente', __name__)
 def index():
     try:
         with sqlite3.connect(DATABASE) as conn:
-            cliente = conn.execute("SELECT * FROM cliente").fetchall()
+            cliente = conn.execute("SELECT * FROM cliente").fetchall() 
         return render_template('index.html', cliente = cliente) 
     except Exception as e:
         print(f"Erro as listar clientes: {e}")
@@ -39,10 +39,10 @@ def criar():
             return f"Erro ao criar cliente: {e}", 500
     return render_template('criar.html')        
 
-@cliente_blueprint.route('//editar/<int:cliente_id>', methods = ['GET', 'POST'])
+@cliente_blueprint.route('/editar/<int:cliente_id>', methods = ['GET', 'POST'])
 def editar(cliente_id):
     try:
-        with sqlite3.connect() as conn:
+        with sqlite3.connect(DATABASE) as conn:
             if request.method == 'POST':
                 nome = request.form['nome']
                 cpf = request.form['cpf']
@@ -62,7 +62,7 @@ def editar(cliente_id):
             
             cliente = conn.execute(
                 "SELECT * FROM cliente WHERE id = ?",
-                (cliente_id)
+                (cliente_id,)
             ).fetchone()
 
             if cliente is None:
