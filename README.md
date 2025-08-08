@@ -67,6 +67,13 @@ deactivate
 ```
 ---
 
+## ▶️ Acesse no navegador: 
+```
+    http://localhost:5000
+```
+
+---
+
 ## Contribuição:
 
 Se quiser contribuir para este projeto, fique à vontade para enviar um pull request ou relatar problemas na seção de issues.
